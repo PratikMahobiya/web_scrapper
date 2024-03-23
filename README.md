@@ -25,7 +25,10 @@ While running **movie_scrapper.py** file the scripts ask you to provide a **genr
 
 ```bash
 python movie_scrapper.py.py
+```
 
+Output
+```bash
 Enter genre or keyword (e.g., 'comedy', 'action'): comdey
 Enter number of pages to scrape: 3
 
