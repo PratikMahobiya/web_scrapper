@@ -59,6 +59,7 @@ def scrape_imdb_movies(genre, num_pages):
             response.raise_for_status()
             soup = BeautifulSoup(response.content, 'html.parser')
             movie_links = [a['href'] for a in soup.find_all('a', {'href': re.compile(r'/title/tt.*')})]
+            movie_links = [link for link in movie_links if 'ref_=sr_i' in link]
 
             movies = list(map(get_movie_details, [f"https://www.imdb.com{link}" for link in movie_links]))
             all_movies.extend([movie for movie in movies if movie])
