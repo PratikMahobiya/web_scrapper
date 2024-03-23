@@ -23,7 +23,7 @@ def get_movie_details(movie_url):
         year = soup.find('a', href=re.compile(r'ref_=tt_ov_rdat.*')).text.strip()
         rating = soup.find('span', class_='sc-bde20123-1 cMEQkK').text.strip()
         directors = [director.text.strip() for director in soup.find_all('li', class_='ipc-metadata-list__item')[0].find_all('a')]
-        cast = [actor.text.strip() for actor in soup.find_all('li', class_='ipc-metadata-list__item')[1].find_all('a')]
+        cast = [actor.text.strip() for actor in soup.find_all('li', class_='ipc-metadata-list__item')[2].find_all('a')][1:-1]
         summary = soup.find('span', class_='sc-466bb6c-2 chnFO').text.strip()
 
         movie_info = {
